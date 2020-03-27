@@ -11,22 +11,28 @@
           }
          $this->load->model('usuarios_model');
          $this->load->helper('security');
-         $this->load->helper('form');
-		     $this->load->library('form_validation');
-  
+         $this->load->library('form_validation');
+     }
+     
+      public function index(){
+         $this->listar(); 
+
      }
      // listar usuários
-     public function index(){
-      $data['titulo'] = 'Listar usuário';
+     public function listar(){
+
+
+      $data['titulo_site'] = 'Crud usuários';
+      $data['titulo_pagina'] = 'Listar usuários';
       $data['usuarios'] = $this->usuarios_model->getUsuarios();
 
       $this->load->view('layout/topo', $data);
-      $this->load->view('usuarios/list');
+      $this->load->view('usuarios/view_listar');
       $this->load->view('layout/rodape');
     
     }
     // novo usuário
-     public function add(){
+     public function adicionar(){
 
       $this->form_validation->set_rules('nome', 'NOME', 'required|min_length[3]');
 
@@ -65,17 +71,19 @@
          redirect('usuarios', 'refresh');
          
       } else {
-         $data['titulo'] = 'Cadastrar usuário'; 
+
+        $data['titulo_site'] = 'Crud usuários';
+        $data['titulo_pagina'] = 'Cadastrar usuários';
 
         $this->load->view('layout/topo', $data);
-        $this->load->view('usuarios/add');
+        $this->load->view('usuarios/view_adicionar');
         $this->load->view('layout/rodape');
 
       }      
 
   }
    // editar usuários
-     public function edit($id=NULL){
+     public function editar($id=NULL){
 
        if ( !$id){
           $this->session->set_flashdata('msg', '<div class="alert alert-danger" role="alert"> Erro, você deve passar um id de 
@@ -108,24 +116,22 @@
 
          $this->usuarios_model->doUpdate($dados, ['id' => $this->input->post('id')]);
          redirect('usuarios', 'refresh');
-  
-        echo '<pre>';
-           print_r($this->input->post());
 
       } else {
 
-         $data['titulo'] = 'Editar usuário';
+         $data['titulo_site'] = 'Crud usuários';
+         $data['titulo_pagina'] = 'Editar usuários';
          $data['query']  = $query;
         
          $this->load->view('layout/topo', $data);
-         $this->load->view('usuarios/edit');
+         $this->load->view('usuarios/view_editar');
          $this->load->view('layout/rodape');
    
         }
 
      }
    // apagar usuários
-     public function del($id=NULL){
+     public function apagar($id=NULL){
 
       if ( !$id){
         $this->session->set_flashdata('msg', '<div class="alert alert-danger" role="alert"> Erro, você deve passar um id de usuário.</div>');
@@ -151,14 +157,13 @@
    
    
      // Apagar o usuário passado
-     if ($this ->usuarios_model->doDelete(['id' -> $query->id])) {
+     if ($this ->usuarios_model->doDelete(['id' => $id])) {
          $this->session->set_flashdata('msg', '<div class="alert alert-success" role="alert">Usuário foi apagado com sucesso!</div>');
      } else {
-      $this->session->set_flashdata('msg', '<div class="alert alert-success" role="alert">Erro ao apagar usuário!</div>');
+         $this->session->set_flashdata('msg', '<div class="alert alert-success" role="alert">Erro ao apagar usuário!</div>');
      }
       redirect('usuarios');
 }
-
 
 
 
