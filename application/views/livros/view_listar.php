@@ -27,8 +27,6 @@
                     <?php foreach ($livros as $l) { ?>
                   <tr>
                      <th scope="row"><img src="<?= base_url('upload/'. $l->img ) ?>" alt=" <?= $l->titulo ?>" class="img-fluid"></th>
-
-
                      <td><?= $l->titulo ?></td>
                      <td><?= $l->autor ?></td>
                     <td class="text-right"><?= $l->preco ?></td>

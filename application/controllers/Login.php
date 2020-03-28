@@ -43,7 +43,7 @@ class Login extends CI_Controller {
              if ( $this->session->userdata('logado') ) {
                 $this->session->set_flashdata('msg_login','<div class="alert alert-success" role="alert">Seja bem vindo, <strong> '.$this->
                    session->userdata('nome') . '</strong></div>');
-                 redirect('/');
+                 redirect('livros');
              } else {
                  $this->session->set_flashdata('erro_login','<div class="alert alert-danger" role="alert">Erro ao tentar logar no 
                      sistema</div>');

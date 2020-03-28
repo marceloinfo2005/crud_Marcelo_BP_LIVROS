@@ -11,6 +11,8 @@
  
     <script type="text/javascript">
        $(document).ready( function () {
+
+          // DATATABLE
           $('#table_ismweb_listar').DataTable({
              language: {
                "sEmptyTable": "Nenhum registro encontrado",
@@ -36,8 +38,23 @@
                      }          
                  }            
              });
-       } );
-     </script>
+
+       // MUDAR IMAGEM LIVRO
+
+       $('.btn-trocar-imagem').on('click', function(){
+           $('.input-file-form-livros-ismweb').removeClass('hide');
+           $('.input-file-form-livros-ismweb').prop('disabled', false);
+           $('.img-livro-ismweb').addClass('hide');
+        });   
+
+       $('.btn-cancelar-troca-imagem').on('click', function(){
+           $('.input-file-form-livros-ismweb').prop('disabled', true);
+           $('.img-livro-ismweb').removeClass('hide');
+           $('.input-file-form-livros-ismweb').addClass('hide');
+       });
+       
+  } );
+  </script>
 
    </body>
 </hmtl>
