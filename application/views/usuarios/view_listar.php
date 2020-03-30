@@ -35,12 +35,12 @@
                 badge-danger">Inativo</span>') ?>
       </td>
        <td class="text-right">
-             <?= anchor('usuarios/editar/'.  $row->id, 'Editar', array('title' => 'Editar', 'class' => 'btn btn-primary')); ?>
-             <?= anchor('usuarios/apagar/'.  $row->id, 'Apagar', array('title' => 'Apagar', 'class' => 'btn btn-danger')); ?>
+             <?= anchor('usuarios/editar/'.  $row->id,'<i class="fa fa-pencil"></i>' , array('title' => 'Editar', 'class' => 'btn btn-primary btn-sm')); ?>
+             <?= anchor('usuarios/apagar/'.  $row->id,'<i class="fa fa-trash-o"></i>', array('title' => 'Apagar', 'class' => "btn btn-danger btn-sm", 'onclick'=> 'return confirm(\'Tem certeza de deseja deletar o usuário?\')')); ?>
              <?php if ($row->ativo ==1) { ?>
-                   <?= anchor('usuarios/inativo/'.  $row->id, 'Desativar', array('title' => 'Desativar', 'class' => 'btn btn-info')); ?>
+                   <?= anchor('usuarios/inativo/'.  $row->id, '<i class="fa fa-times"></i>', array('title' => 'Desativar', 'class' => 'btn btn-info btn-sm')); ?>
              <?php } else { ?>
-              <?= anchor('usuarios/ativo/'.  $row->id, 'Ativar', array('title' => 'Ativar', 'class' => 'btn btn-info')); ?>
+              <?= anchor('usuarios/ativo/'.  $row->id, '<i class="fa fa-check"></i>', array('title' => 'Ativar', 'class' => 'btn btn-success btn-sm')); ?>
              <?php } ?>
          </td>
        </tr>

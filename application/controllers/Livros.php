@@ -49,7 +49,7 @@ class Livros extends CI_Controller {
 
 		 // UPLOAD DA IMAGEM
 		 $config['upload_path']      = './upload/';
-		 $config['allowed_types']    = 'gif|jpg|png';
+		 $config['allowed_types']    = 'gif|jpg|png|jpeg|jfif';
 		 $config['max_size']         = 2048;
 		 $config['encrypt_name']     = TRUE;
 		 $this->load->library('upload', $config);
@@ -114,7 +114,7 @@ class Livros extends CI_Controller {
 
 			// UPLOAD DA IMAGEM
 			 $config['upload_path']      = './upload/';
-			 $config['allowed_types']    = 'gif|jpg|png';
+			 $config['allowed_types']    = 'gif|jpg|png|jpeg|jfif';
 			 $config['max_size']         = 2048;
 			 $config['encrypt_name']     = TRUE;
 			 $this->load->library('upload', $config);

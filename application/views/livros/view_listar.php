@@ -35,14 +35,16 @@
                     <td class="text-right">
                           <?= anchor('livros/editar/'. $l->id, '<i class="fa fa-pencil"></i>'
                                 , ['title' => 'Editar', 'class' => 'btn btn-primary btn-sm']) ?>
-                          <?= anchor('livros/apagar/'. $l->id, '<i class="fa fa-trash-o"></i>'
-                                , ['title' => 'Apagar', 'class' => 'btn btn-danger btn-sm']) ?>
+
+
+<?= anchor('livros/apagar/'. $l->id, '<i class="fa fa-trash-o"></i>', ['title' => 'Apagar', 'class' => "btn btn-danger btn-sm", 'onclick'=> 'return confirm(\'Tem certeza de deseja deletar o livro?\')']) ?>
+
                         <?php if ($l->ativo == 1 ) { ?>
                           <?= anchor('livros/desativar/'. $l->id, '<i class="fa fa-times"></i>'
-                          , ['title' => 'Desativar', 'class' => 'btn btn-primary btn-sm']) ?>
+                                , ['title' => 'Desativar', 'class' => 'btn btn-primary btn-sm']) ?>
                         <?php } else { ?>
                           <?= anchor('livros/ativar/'. $l->id, '<i class="fa fa-check"></i>'
-                          , ['title' => 'Ativar', 'class' => 'btn btn-success btn-sm']) ?>
+                                , ['title' => 'Ativar', 'class' => 'btn btn-success btn-sm']) ?>
                         <?php } // fim do if do botão mudar status ?>
                     </td>
              </tr>
@@ -52,3 +54,6 @@
        </div>    
     </section>    
 </main>
+
+
+

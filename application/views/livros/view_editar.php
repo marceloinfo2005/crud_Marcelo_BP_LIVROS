@@ -10,6 +10,7 @@
      <section class="row">
        <div class="col-12 col-sm-12">
              <?= validation_errors('<div class="alert alert-danger" role="alert">', '</div>') ?>
+             <?= $this->session->userdata('msg'); ?>
          </div>    
     </section>       
 
@@ -61,14 +62,13 @@
 
                 <div class="form-group">
                     <button type="button" class="btn btn-secondary mb-2 btn-trocar-imagem"><i class="fa fa-upload"></i> Trocar Imagem</button>
-                    <button type="button" class="btn btn-danger    mb-2 btn-cancelar-troca-imagem"><i class="fa fa-times"></i> Cancelar</button>
+                    <button type="button" class="btn btn-danger mb-2 btn-cancelar-troca-imagem"><i class="fa fa-times"></i> Cancelar</button>
                     <input  type="file" name="foto_livro" class="form-control input-file-form-livros-ismweb hide" required="" disabled="">
                </div>    
     
                <hr class="mt-5">
                <?= form_hidden('id_livro', $query->id); ?>
-               <?= form_submit('submit', 'Atualizar livro', ['class' => 'btn btn-success mt-3 mb5' ]); ?>
-
+               <?= form_submit('submit', 'Atualizar livro', ['class' => 'btn btn-success mt-3 mb5']); ?>
 
             <?= form_close() ?>
         </div>    

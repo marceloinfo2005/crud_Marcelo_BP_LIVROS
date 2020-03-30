@@ -10,7 +10,7 @@
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script>
  
     <script type="text/javascript">
-       $(document).ready( function () {
+        $(document).ready( function () {
 
           // DATATABLE
           $('#table_ismweb_listar').DataTable({
@@ -33,27 +33,27 @@
                "sLast": "Último"
             },
                "oAria": {
-               "sSortAscending": ": Ordenar colunas de forma ascendente",
-               "sSortDescending": ": Ordenar colunas de forma descendente"
-                     }          
-                 }            
-             });
+                   "sSortAscending": ": Ordenar colunas de forma ascendente",
+                   "sSortDescending": ": Ordenar colunas de forma descendente"
+                 }          
+               }            
+          });
 
-       // MUDAR IMAGEM LIVRO
+          // MUDAR IMAGEM LIVRO
 
        $('.btn-trocar-imagem').on('click', function(){
            $('.input-file-form-livros-ismweb').removeClass('hide');
            $('.input-file-form-livros-ismweb').prop('disabled', false);
            $('.img-livro-ismweb').addClass('hide');
         });   
-
-       $('.btn-cancelar-troca-imagem').on('click', function(){
+        
+       $('btn-cancelar-troca-imagem').on('click', function(){
            $('.input-file-form-livros-ismweb').prop('disabled', true);
            $('.img-livro-ismweb').removeClass('hide');
            $('.input-file-form-livros-ismweb').addClass('hide');
        });
        
-  } );
+      } );
   </script>
 
    </body>

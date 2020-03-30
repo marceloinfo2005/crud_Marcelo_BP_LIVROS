@@ -15,7 +15,7 @@
 
     <section class="row">  
         <div class="col-12 col-sm-12">
-             <? class="form-group">
+            
             <?= form_open_multipart() ?>
                 <div class="form-group">
                      <?= form_label('Titulo') ?>
